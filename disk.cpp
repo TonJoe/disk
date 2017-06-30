@@ -225,7 +225,7 @@ double MonCa(int max, int n, int ln, int p/*, double R*/)		//max means the max s
 				z[m]=r[m];		//Metropolis acceptance.
 			}
 		}
-		sum=sum+Vee(n,z)+Vbe(n,niu,RN,z)+Vbb(n,niu);	//cout<<"Number="<<i<<"  "<<Coulomb(n,z)<<endl;
+		sum=sum+Vee(n,z)/*+Vbe(n,niu,RN,z)+Vbb(n,niu)*/;	//cout<<"Number="<<i<<"  "<<Coulomb(n,z)<<endl;
 		
 	}
 	cout<<"Filling Factor is :"<<ln/(2*p*ln+1.)<<endl;
@@ -238,17 +238,10 @@ int main()
 	int n;
 	complex<double> c1;
 	c1=polar(1.,PI/3);
-	cout<<pow(c1,3)<<endl<<RAND_MAX<<endl;	
-	for(int i=0;i<10;i++)
-	{
-		//cout<<rand()%100<<" "<<rand()%100<<endl;
-	}
-	
+	//cout<<pow(c1,3)<<endl<<RAND_MAX<<endl;	
 	for(;;)
 	{
 		cin>>n;
-		cout<<MonCa(500000,n , 1 ,2)<<endl;
+		cout<<n*MonCa(15000000,n , 2 ,1)<<endl;
 	}
-	//cout<<(MonCa(1000,8,2,5)-MonCa(1000000,8,0,5))/10.<<endl;
-	//cout<<MonCa(10000,10,0,10)<<endl;
 }
